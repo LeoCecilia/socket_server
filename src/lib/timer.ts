@@ -1,12 +1,22 @@
-let data = 2;
-export const updateDataTimer = () => {
+import { dataProps } from "../data/data";
+
+// let data = 2;
+/**
+ * update data
+ * TODO: maybe save data into data.json
+ * @param data
+ */
+export const updateDataTimer = (
+  data: dataProps,
+  callback: (data: dataProps) => void,
+  interval: number
+) => {
   let count = 0;
-  let interval = setInterval(() => {
-    data++;
-    count++;
+  let tick = setInterval(() => {
+    callback(data);
     console.log("data timer", data);
     if (count >= 10000) {
-      clearInterval(interval);
+      clearInterval(tick);
     }
-  }, 9 * 1000);
+  }, interval);
 };

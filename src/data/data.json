@@ -1,0 +1,11 @@
+{
+  "flySpeed": 100,
+  "coordinates": {
+    "longitute": 2,
+    "latitude": 2,
+    "altitude": 3
+  },
+  "nectar": 200,
+  "honey": 3,
+  "fuelLevel": 20
+}

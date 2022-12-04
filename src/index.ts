@@ -18,7 +18,6 @@ import { updateDataTimer } from "./lib/timer";
 let app = new Koa();
 
 dbConnect();
-updateDataTimer();
 
 app.use(cors(corsOptions));
 
@@ -60,6 +59,15 @@ let io = new Server(server, {
 //     // }
 //   } catch (err) {}
 // });
+const data = require("./data/data");
+
+updateDataTimer(
+  data,
+  (data) => {
+    data.nectar++;
+  },
+  9 * 1000
+);
 
 io.on("connection", (socket) => {
   console.log("Connected");
@@ -70,8 +78,8 @@ io.on("connection", (socket) => {
       clearInterval(interval);
       return;
     }
-    io.emit("socket_data", { data: 2 });
-  }, 5000);
+    io.emit("socket_data", data);
+  }, 9 * 1000);
   socket.on("disconnect", () => {
     console.log("disConnected");
     clearInterval(interval);
