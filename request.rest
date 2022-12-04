@@ -1,0 +1,16 @@
+POST http://localhost:3003/token
+Content-Type: application/json
+
+{
+  "token": "yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2l2ZSIsImlhdCI6MTY2OTk1NTI0Mn0.9mnMOLA-4BHblHS0n_7E1UhiqKj5yvIIGk2pUxhhZc8"
+}
+
+###
+
+POST http://localhost:3003/auth/logout
+Content-Type: application/json
+
+{
+  "userName": "kive",
+  "password": "123456"
+}
